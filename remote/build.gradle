@@ -34,4 +34,8 @@ dependencies {
     testImplementation "junit:junit:$jUnitVersion"
     androidTestImplementation "com.android.support.test:runner:$testRunnerVersion"
     androidTestImplementation "com.android.support.test.espresso:espresso-core:$expressoVersion"
+
+    //local
+    implementation project(":data")
+    implementation project(":domain")
 }
