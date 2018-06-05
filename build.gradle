@@ -1,14 +1,39 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
 buildscript {
-    ext.kotlin_version = '1.2.41'
+
+    ext {
+
+        gradleVersion = '3.1.2'
+        kotlinVersion = '1.2.41'
+        supportVersion = '27.1.1'
+        jUnitVersion = '4.12'
+        testRunnerVersion = '1.0.1'
+        expressoVersion = '3.0.1'
+        archRuntimeVersion = '1.1.1'
+        archExtensionVersion = '1.1.1'
+        archCompilerVersion = '1.1.1'
+        archLiveDataVersion = '1.1.1'
+        pagingVersion = '1.0.0'
+        retrofitVersion = '2.4.0'
+        okHttpVersion = '3.10.0'
+        timberVersion = '4.7.0'
+        gsonVersion = '2.8.2'
+        glideVersion = '4.7.1'
+        kodeinVersion = '5.0.0'
+        rxAndroidVersion = '2.0.2'
+        rxKotlinVersion = '2.2.0'
+        circularImageVersion = '2.2.0'
+        constraintVersion = '1.1.0'
+    }
+
     repositories {
         google()
         jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.1.2'
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath "com.android.tools.build:gradle:$gradleVersion"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files

@@ -23,10 +23,68 @@ android {
 }
 
 dependencies {
+
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation"org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
-    implementation 'com.android.support:appcompat-v7:27.1.1'
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'com.android.support.test:runner:1.0.2'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+
+    // kotlin
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion"
+
+    // design ( and few transitive dependencies)
+    implementation "com.android.support:appcompat-v7:$supportVersion"
+    implementation "com.android.support:cardview-v7:$supportVersion"
+    implementation "com.android.support:animated-vector-drawable:$supportVersion"
+    implementation "com.android.support:customtabs:$supportVersion"
+    implementation "com.android.support:design:$supportVersion"
+    implementation "com.android.support:support-v4:$supportVersion"
+
+    // tests
+    testImplementation "org.jetbrains.kotlin:kotlin-test-junit:$kotlinVersion"
+    testImplementation "junit:junit:$jUnitVersion"
+    androidTestImplementation "com.android.support.test:runner:$testRunnerVersion"
+    androidTestImplementation "com.android.support.test.espresso:espresso-core:$expressoVersion"
+
+    // circular imageview
+    implementation "de.hdodenhof:circleimageview:$circularImageVersion"
+
+    // constraint
+    implementation "com.android.support.constraint:constraint-layout:$constraintVersion"
+
+    // rx
+    implementation "io.reactivex.rxjava2:rxandroid:$rxAndroidVersion"
+    implementation "io.reactivex.rxjava2:rxkotlin:$rxKotlinVersion"
+
+    // arch components
+    implementation "android.arch.lifecycle:runtime:$archRuntimeVersion"
+    implementation "android.arch.lifecycle:extensions:$archExtensionVersion"
+    kapt "android.arch.lifecycle:compiler:$archCompilerVersion"
+
+    // paging
+    implementation "android.arch.paging:runtime:$pagingVersion"
+
+    // retrofit
+    implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:$retrofitVersion"
+
+    // GSON converter
+    implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
+    implementation "com.google.code.gson:gson:$gsonVersion"
+
+    // okHttp logging interceptor
+    implementation "com.squareup.okhttp3:okhttp:$okHttpVersion"
+    implementation "com.squareup.okhttp3:logging-interceptor:$okHttpVersion"
+
+    // timber
+    implementation "com.jakewharton.timber:timber:$timberVersion"
+
+    // glide
+    implementation("com.github.bumptech.glide:glide:$glideVersion") {
+        exclude group: "com.android.support"
+    }
+    kapt("com.github.bumptech.glide:compiler:$glideVersion") {
+        exclude group: "com.android.support"
+    }
+
+    // kodein
+    implementation "org.kodein.di:kodein-di-generic-jvm:$kodeinVersion"
+    implementation "org.kodein.di:kodein-di-framework-android:$kodeinVersion"
 }
