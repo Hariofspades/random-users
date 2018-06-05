@@ -1,8 +1,7 @@
 apply plugin: 'com.android.application'
-
 apply plugin: 'kotlin-android'
-
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion 27
@@ -87,4 +86,7 @@ dependencies {
     // kodein
     implementation "org.kodein.di:kodein-di-generic-jvm:$kodeinVersion"
     implementation "org.kodein.di:kodein-di-framework-android:$kodeinVersion"
+
+    // local modules
+    implementation project(':domain')
 }
