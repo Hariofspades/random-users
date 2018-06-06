@@ -2,7 +2,7 @@ package com.hariofspades.remote.features.userlist.model
 
 import com.google.gson.annotations.SerializedName
 
-data class Location(
+data class LocationResponse(
 
         @SerializedName("city")
         val city: String = "NA",

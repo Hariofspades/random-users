@@ -23,7 +23,7 @@ data class ResultsItemResponse(
         val registered: String = "NA",
 
         @SerializedName("location")
-        val location: Location,
+        val location: LocationResponse,
 
         @SerializedName("id")
         val id: IdResponse,
