@@ -7,8 +7,10 @@ import io.reactivex.Single
 import retrofit2.Retrofit
 
 class UserRemoteImpl(
+
         retrofit: Retrofit,
         private val rResultItemMapper: RResultItemMapper
+
 ): UserRemote {
 
     private val apiService = retrofit.create(UserService::class.java)
