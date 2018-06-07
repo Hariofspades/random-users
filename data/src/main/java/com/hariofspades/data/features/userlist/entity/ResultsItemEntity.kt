@@ -12,7 +12,7 @@ data class ResultsItemEntity(
 
         val firstName: String = "NA",
 
-        val lasttName: String = "NA",
+        val lastName: String = "NA",
 
         val title: String = "NA",
 

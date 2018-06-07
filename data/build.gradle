@@ -46,6 +46,9 @@ dependencies {
     implementation "android.arch.persistence.room:runtime:$roomVersion"
     annotationProcessor "android.arch.persistence.room:compiler:$roomVersion"
 
+    // paging
+    implementation "android.arch.paging:runtime:$pagingVersion"
+
     // local
     implementation project(":domain")
 }

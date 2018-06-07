@@ -1,6 +1,7 @@
 package com.hariofspades.domain.features.userlist.model
 
 import android.arch.persistence.room.Entity
+import android.arch.persistence.room.PrimaryKey
 
 @Entity(tableName = "users")
 data class ResultsItem(
@@ -13,9 +14,10 @@ data class ResultsItem(
 
         val dob: String = "NA",
 
+        @PrimaryKey
         val firstName: String = "NA",
 
-        val lasttName: String = "NA",
+        val lastName: String = "NA",
 
         val title: String = "NA",
 
