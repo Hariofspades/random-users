@@ -4,13 +4,7 @@ import com.hariofspades.data.common.mapper.Mapper
 import com.hariofspades.data.features.userlist.entity.ResultsItemEntity
 import com.hariofspades.domain.features.userlist.model.ResultsItem
 
-class ResultItemMapper(
-
-        private val nameMapper: NameMapper,
-        private val locationMapper: LocationMapper,
-        private val pictureMapper: PictureMapper
-
-) : Mapper<ResultsItemEntity, ResultsItem> {
+class ResultItemMapper : Mapper<ResultsItemEntity, ResultsItem> {
 
     override fun mapFromEntity(type: ResultsItemEntity): ResultsItem {
         return ResultsItem(
@@ -18,12 +12,19 @@ class ResultItemMapper(
                 type.gender,
                 type.phone,
                 type.dob,
-                nameMapper.mapFromEntity(type.name),
+                type.firstName,
+                type.lasttName,
+                type.title,
                 type.registered,
-                locationMapper.mapFromEntity(type.location),
+                type.city,
+                type.street,
+                type.postcode,
+                type.state,
                 type.cell,
                 type.email,
-                pictureMapper.mapFromEntity(type.picture)
+                type.thumbnail,
+                type.large,
+                type.medium
         )
     }
 
@@ -33,12 +34,19 @@ class ResultItemMapper(
                 type.gender,
                 type.phone,
                 type.dob,
-                nameMapper.mapToEntity(type.name),
+                type.firstName,
+                type.lasttName,
+                type.title,
                 type.registered,
-                locationMapper.mapToEntity(type.location),
+                type.city,
+                type.street,
+                type.postcode,
+                type.state,
                 type.cell,
                 type.email,
-                pictureMapper.mapToEntity(type.picture)
+                type.thumbnail,
+                type.large,
+                type.medium
         )
     }
 }

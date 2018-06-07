@@ -10,15 +10,29 @@ data class ResultsItemEntity(
 
         val dob: String = "NA",
 
-        val name: NameEntity,
+        val firstName: String = "NA",
+
+        val lasttName: String = "NA",
+
+        val title: String = "NA",
 
         val registered: String = "NA",
 
-        val location: LocationEntity,
+        val city: String = "NA",
+
+        val street: String = "NA",
+
+        val postcode: String = "NA",
+
+        val state: String = "NA",
 
         val cell: String = "NA",
 
         val email: String = "NA",
 
-        val picture: PictureEntity
+        val thumbnail: String = "NA",
+
+        val large: String = "NA",
+
+        val medium: String = "NA"
 )

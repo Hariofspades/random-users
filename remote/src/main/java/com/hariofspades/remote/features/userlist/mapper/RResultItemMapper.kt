@@ -4,13 +4,7 @@ import com.hariofspades.data.features.userlist.entity.ResultsItemEntity
 import com.hariofspades.remote.common.mapper.EntityMapper
 import com.hariofspades.remote.features.userlist.model.ResultsItemResponse
 
-class RResultItemMapper(
-        private val rIdMapper: RIdMapper,
-        private val rLocationMapper: RLocationMapper,
-        private val rNameMapper: RNameMapper,
-        private val rPictureMapper: RPictureMapper,
-        private val rLoginMapper: RLoginMapper
-) : EntityMapper<ResultsItemResponse, ResultsItemEntity> {
+class RResultItemMapper : EntityMapper<ResultsItemResponse, ResultsItemEntity> {
 
     override fun mapFromRemote(type: ResultsItemResponse): ResultsItemEntity {
         return ResultsItemEntity(
@@ -18,12 +12,19 @@ class RResultItemMapper(
                 type.gender,
                 type.phone,
                 type.dob,
-                rNameMapper.mapFromRemote(type.name),
+                type.name.first,
+                type.name.last,
+                type.name.title,
                 type.registered,
-                rLocationMapper.mapFromRemote(type.location),
+                type.location.city,
+                type.location.street,
+                type.location.postcode,
+                type.location.state,
                 type.cell,
                 type.email,
-                rPictureMapper.mapFromRemote(type.picture)
+                type.picture.thumbnail,
+                type.picture.large,
+                type.picture.medium
         )
     }
 }

@@ -28,11 +28,7 @@ class TempActivity : BaseActivity(), KodeinAware {
     private fun observe() {
         viewModel.getRandomUserList(0).observe(this, Observer {
 
-            for (item in it!!) {
-
-                Timber.d("received user - ${item.name.first} + ${item.name.last}")
-
-            }
+            Timber.d("received user size- ${it?.size}")
 
         })
     }

@@ -19,12 +19,12 @@ class TempViewModel(
 
     fun getRandomUserList(page: Int): SingleLiveEvent<List<ResultsItem>> {
 
-        userDataRepository.getRandomUserList(page)?.subscribeOn(schedulerProvider.io())
-                ?.observeOn(schedulerProvider.ui())
-                ?.subscribe({
+        userDataRepository.getRandomUserList(page).subscribeOn(schedulerProvider.io())
+                .observeOn(schedulerProvider.ui())
+                .subscribe({
 
                     Timber.d("Received user list")
-                    userListLiveData.value = it.results
+                    userListLiveData.value = it
 
                 }, {
 

@@ -15,6 +15,7 @@ buildscript {
         archExtensionVersion = '1.1.1'
         archCompilerVersion = '1.1.1'
         archLiveDataVersion = '1.1.1'
+        roomVersion = '1.1.0'
         pagingVersion = '1.0.0'
         retrofitVersion = '2.4.0'
         okHttpVersion = '3.10.0'
