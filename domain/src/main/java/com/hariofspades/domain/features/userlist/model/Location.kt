@@ -7,7 +7,7 @@ data class Location(
 
         val street: String = "NA",
 
-        val postcode: Int = 0,
+        val postcode: String = "NA",
 
         val state: String = "NA"
 )

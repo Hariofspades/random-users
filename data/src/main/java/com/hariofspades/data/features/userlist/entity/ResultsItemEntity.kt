@@ -16,10 +16,6 @@ data class ResultsItemEntity(
 
         val location: LocationEntity,
 
-        val id: IdEntity?,
-
-        val login: LoginEntity?,
-
         val cell: String = "NA",
 
         val email: String = "NA",

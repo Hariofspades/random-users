@@ -21,8 +21,6 @@ class RResultItemMapper(
                 rNameMapper.mapFromRemote(type.name),
                 type.registered,
                 rLocationMapper.mapFromRemote(type.location),
-                rIdMapper.mapFromRemote(type.id),
-                rLoginMapper.mapFromRemote(type.login),
                 type.cell,
                 type.email,
                 rPictureMapper.mapFromRemote(type.picture)

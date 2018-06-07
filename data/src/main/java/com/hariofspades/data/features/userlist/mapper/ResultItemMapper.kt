@@ -36,8 +36,6 @@ class ResultItemMapper(
                 nameMapper.mapToEntity(type.name),
                 type.registered,
                 locationMapper.mapToEntity(type.location),
-                null,
-                null,
                 type.cell,
                 type.email,
                 pictureMapper.mapToEntity(type.picture)

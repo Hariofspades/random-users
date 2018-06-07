@@ -31,7 +31,6 @@ fun httpModule() = Kodein.Module {
     bind<OkHttpClient>("httpclient") with singleton {
         OkHttpClient.Builder()
                 .addInterceptor(instance("log-interceptor"))
-                .addInterceptor(instance("clky"))
                 .build()
     }
 

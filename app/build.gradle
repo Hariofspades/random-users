@@ -52,6 +52,7 @@ dependencies {
     implementation "com.android.support:support-v4:$supportVersion"
 
     // tests
+    implementation 'com.android.support.constraint:constraint-layout:1.1.0'
     testImplementation "org.jetbrains.kotlin:kotlin-test-junit:$kotlinVersion"
     testImplementation "junit:junit:$jUnitVersion"
     androidTestImplementation "com.android.support.test:runner:$testRunnerVersion"

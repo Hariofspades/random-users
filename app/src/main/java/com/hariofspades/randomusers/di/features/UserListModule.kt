@@ -1,10 +1,7 @@
 package com.hariofspades.randomusers.di.features
 
 import com.hariofspades.data.features.userlist.UserDataRepositoryImpl
-import com.hariofspades.data.features.userlist.mapper.LocationMapper
-import com.hariofspades.data.features.userlist.mapper.NameMapper
-import com.hariofspades.data.features.userlist.mapper.PictureMapper
-import com.hariofspades.data.features.userlist.mapper.ResultItemMapper
+import com.hariofspades.data.features.userlist.mapper.*
 import com.hariofspades.data.features.userlist.repository.UserRemote
 import com.hariofspades.domain.features.userlist.UserDataRepository
 import com.hariofspades.remote.features.userlist.UserRemoteImpl
@@ -27,6 +24,8 @@ fun userListModule() = Kodein.Module {
 
     bind<RIdMapper>("r-id-mapper") with provider { RIdMapper() }
 
+    bind<RInfoMapper>("r-info-mapper") with provider { RInfoMapper() }
+
     bind<RResultItemMapper>("r-result-mapper") with provider {
 
         RResultItemMapper(
@@ -38,11 +37,20 @@ fun userListModule() = Kodein.Module {
         )
     }
 
+    bind<RResponseMapper>("r-response-mapper") with provider {
+
+        RResponseMapper(
+                instance("r-result-mapper"),
+                instance("r-info-mapper")
+        )
+
+    }
+
     bind<UserRemote>("user-remote") with provider {
 
         UserRemoteImpl(
                 instance("retrofit"),
-                instance("r-result-mapper")
+                instance("r-response-mapper")
         )
 
     }
@@ -53,6 +61,8 @@ fun userListModule() = Kodein.Module {
 
     bind<PictureMapper>("pic-mapper") with provider { PictureMapper() }
 
+    bind<InfoMapper>("info-mapper") with provider { InfoMapper() }
+
     bind<ResultItemMapper>("result-mapper") with provider {
 
         ResultItemMapper(
@@ -62,10 +72,19 @@ fun userListModule() = Kodein.Module {
         )
     }
 
+    bind<ResponseMapper>("response-mapper") with provider {
+
+        ResponseMapper(
+                instance("result-mapper"),
+                instance("info-mapper")
+        )
+
+    }
+
     bind<UserDataRepository>("user-repo") with provider {
 
         UserDataRepositoryImpl(
-                instance("result-mapper"),
+                instance("response-mapper"),
                 instance("user-remote")
         )
     }
