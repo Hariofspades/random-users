@@ -2,8 +2,12 @@ package com.hariofspades.randomusers.feature.userlist
 
 import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
+import android.content.Context
+import android.net.ConnectivityManager
+import android.net.NetworkInfo
 import android.os.Bundle
 import com.hariofspades.randomusers.R
+import com.hariofspades.randomusers.common.extensions.isNetworkStatusAvailable
 import com.hariofspades.randomusers.core.BaseActivity
 import com.hariofspades.randomusers.core.BaseModelFactory
 import org.kodein.di.KodeinAware
@@ -22,11 +26,17 @@ class TempActivity : BaseActivity(), KodeinAware {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_temp)
         init()
+        getNetworkState()
         observe()
     }
 
+    private fun getNetworkState() {
+        Timber.d("internet connection - ${this.isNetworkStatusAvailable()}")
+        viewModel.isConnected.value = this.isNetworkStatusAvailable()
+    }
+
     private fun observe() {
-        viewModel.getRandomUserList(0).observe(this, Observer {
+        viewModel.getRandomUserList().observe(this, Observer {
 
             Timber.d("received user size- ${it?.size}")
 

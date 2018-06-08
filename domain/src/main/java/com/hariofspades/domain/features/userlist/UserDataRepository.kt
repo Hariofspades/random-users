@@ -5,6 +5,6 @@ import io.reactivex.Single
 
 interface UserDataRepository {
 
-    fun getRandomUserList(page: Int): Single<List<ResultsItem>>
+    fun getRandomUserList(isConnected: Boolean): Single<List<ResultsItem>>
 
 }

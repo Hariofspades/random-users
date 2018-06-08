@@ -49,6 +49,7 @@ dependencies {
     // paging
     implementation "android.arch.paging:runtime:$pagingVersion"
 
+
     // local
     implementation project(":domain")
 }

@@ -1,5 +1,6 @@
 package com.hariofspades.randomusers.feature.userlist
 
+import android.arch.lifecycle.MutableLiveData
 import com.hariofspades.domain.features.userlist.UserDataRepository
 import com.hariofspades.domain.features.userlist.model.ResultsItem
 import com.hariofspades.randomusers.common.livedata.SingleLiveEvent
@@ -17,20 +18,26 @@ class TempViewModel(
 
     private val userListLiveData: SingleLiveEvent<List<ResultsItem>> = SingleLiveEvent()
 
-    fun getRandomUserList(page: Int): SingleLiveEvent<List<ResultsItem>> {
+    var isConnected: MutableLiveData<Boolean> = MutableLiveData()
 
-        userDataRepository.getRandomUserList(page).subscribeOn(schedulerProvider.io())
-                .observeOn(schedulerProvider.ui())
-                .subscribe({
+    fun getRandomUserList(): SingleLiveEvent<List<ResultsItem>> {
 
-                    Timber.d("Received user list")
-                    userListLiveData.value = it
+        isConnected.value?.let {
+            userDataRepository.getRandomUserList(it)
+                    .subscribeOn(schedulerProvider.io())
+                    .observeOn(schedulerProvider.ui())
+                    .subscribe({
 
-                }, {
+                        Timber.d("Received user list")
+                        userListLiveData.value = it
 
-                    Timber.d("Error in receiving the user list - ${it.printStackTrace()}")
+                    }, {
 
-                })?.addTo(disposables)
+                        Timber.d("Error in receiving the user list - ${it.printStackTrace()}")
+
+                    })?.addTo(disposables)
+        }
+
 
         return userListLiveData
     }

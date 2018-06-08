@@ -46,6 +46,7 @@ dependencies {
     // livedata
     implementation "android.arch.lifecycle:livedata:$archLiveDataVersion"
 
+
 }
 repositories {
     mavenCentral()

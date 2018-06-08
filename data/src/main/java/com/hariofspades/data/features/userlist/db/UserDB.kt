@@ -19,11 +19,13 @@ abstract class UserDB : RoomDatabase() {
 
         fun create(context: Context, useInMemory : Boolean): UserDB {
 
-            val databaseBuilder = Room.databaseBuilder(context, UserDB::class.java, "user.db")
+            val databaseBuilder = Room.databaseBuilder(context, UserDB::class.java, USER_DB)
 
             return databaseBuilder
                     .fallbackToDestructiveMigration()
                     .build()
         }
+
+        private const val USER_DB = "user.db"
     }
 }

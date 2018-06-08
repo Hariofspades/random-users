@@ -6,6 +6,7 @@ import android.arch.persistence.room.OnConflictStrategy
 import android.arch.persistence.room.Query
 import com.hariofspades.domain.features.userlist.model.ResultsItem
 import android.arch.paging.DataSource
+import io.reactivex.Flowable
 
 @Dao
 interface UserDao {
@@ -14,5 +15,5 @@ interface UserDao {
     fun insert(posts : List<ResultsItem>)
 
     @Query("SELECT * FROM users")
-    fun getUserList(): DataSource.Factory<Int, ResultsItem>
+    fun getUserList(): Flowable<List<ResultsItem>>
 }

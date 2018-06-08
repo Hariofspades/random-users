@@ -11,18 +11,17 @@ class UserRemoteImpl(
         retrofit: Retrofit,
         private val rResultItemMapper: RResultItemMapper
 
-): UserRemote {
+) : UserRemote {
 
     private val apiService = retrofit.create(UserService::class.java)
 
-    override fun getRandomUserList(page: Int): Single<List<ResultsItemEntity>> {
-        return apiService.getRandomUserList(page = page)
+    override fun getRandomUserList(): Single<List<ResultsItemEntity>> {
+        return apiService.getRandomUserList()
                 .map {
-                    it.results?.map{
+                    it.results?.map {
                         rResultItemMapper.mapFromRemote(it)
                     }
                 }
-
     }
 
 }

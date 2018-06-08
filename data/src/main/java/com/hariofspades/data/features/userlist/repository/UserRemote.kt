@@ -5,5 +5,5 @@ import io.reactivex.Single
 
 interface UserRemote {
 
-    fun getRandomUserList(page: Int): Single<List<ResultsItemEntity>>
+    fun getRandomUserList(): Single<List<ResultsItemEntity>>
 }

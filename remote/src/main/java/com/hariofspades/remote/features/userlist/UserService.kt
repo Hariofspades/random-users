@@ -9,7 +9,7 @@ interface UserService {
 
     @GET("api")
     fun getRandomUserList(
-            @Query("page")page: Int,
+            @Query("page")page: Int = 0,
             @Query("results")result: Int = 15
     ): Single<UserResponse>
 
