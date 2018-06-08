@@ -1,10 +1,11 @@
-package com.hariofspades.data.features.userlist.db
+package com.hariofspades.storage.features.userlist.database
 
 import android.arch.persistence.room.Database
 import android.arch.persistence.room.Room
 import android.arch.persistence.room.RoomDatabase
 import android.content.Context
 import com.hariofspades.domain.features.userlist.model.ResultsItem
+import com.hariofspades.storage.features.userlist.dao.UserDao
 
 @Database(
         entities = [(ResultsItem::class)],
@@ -13,11 +14,11 @@ import com.hariofspades.domain.features.userlist.model.ResultsItem
 )
 abstract class UserDB : RoomDatabase() {
 
-    abstract fun users(): UserDao
+    abstract fun userDao(): UserDao
 
     companion object {
 
-        fun create(context: Context, useInMemory : Boolean): UserDB {
+        fun create(context: Context): UserDB {
 
             val databaseBuilder = Room.databaseBuilder(context, UserDB::class.java, USER_DB)
 

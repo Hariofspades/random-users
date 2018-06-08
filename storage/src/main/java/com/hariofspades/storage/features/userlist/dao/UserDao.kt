@@ -1,12 +1,10 @@
-package com.hariofspades.data.features.userlist.db
+package com.hariofspades.storage.features.userlist.dao
 
 import android.arch.persistence.room.Dao
 import android.arch.persistence.room.Insert
 import android.arch.persistence.room.OnConflictStrategy
 import android.arch.persistence.room.Query
 import com.hariofspades.domain.features.userlist.model.ResultsItem
-import android.arch.paging.DataSource
-import io.reactivex.Flowable
 
 @Dao
 interface UserDao {
@@ -15,5 +13,5 @@ interface UserDao {
     fun insert(posts : List<ResultsItem>)
 
     @Query("SELECT * FROM users")
-    fun getUserList(): Flowable<List<ResultsItem>>
+    fun getUserList(): List<ResultsItem>
 }
