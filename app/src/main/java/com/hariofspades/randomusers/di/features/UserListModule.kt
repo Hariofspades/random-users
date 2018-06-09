@@ -9,6 +9,7 @@ import com.hariofspades.domain.features.userlist.UserDataRepository
 import com.hariofspades.remote.features.userlist.UserRemoteImpl
 import com.hariofspades.remote.features.userlist.mapper.*
 import com.hariofspades.storage.features.userlist.UserStorageImpl
+import com.hariofspades.storage.features.userlist.dao.UserDao
 import com.hariofspades.storage.features.userlist.database.UserDB
 import com.hariofspades.storage.features.userlist.mapper.SResultItemMapper
 import org.kodein.di.Kodein
@@ -32,8 +33,10 @@ fun userListModule() = Kodein.Module {
 
     bind<ResultItemMapper>("result-mapper") with provider { ResultItemMapper() }
 
-    bind<UserDB>("room-db") with singleton {
-        UserDB.create(instance("appContext"))
+    bind<UserDao>("room-db") with singleton {
+        //UserDB.create(instance("appContext"))
+        Room.databaseBuilder(instance("appContext"),
+                UserDB::class.java, "user.db").build().userDao()
     }
 
     bind<SResultItemMapper>("s-result-mapper") with provider { SResultItemMapper() }

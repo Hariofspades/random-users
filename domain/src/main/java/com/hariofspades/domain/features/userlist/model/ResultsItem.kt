@@ -6,39 +6,39 @@ import android.arch.persistence.room.PrimaryKey
 @Entity(tableName = "users")
 data class ResultsItem(
 
-        val nat: String = "NA",
+        var nat: String = "NA",
 
-        val gender: String = "NA",
+        var gender: String = "NA",
 
-        val phone: String = "NA",
+        var phone: String = "NA",
 
-        val dob: String = "NA",
+        var dob: String = "NA",
 
         @PrimaryKey
-        val firstName: String = "NA",
+        var firstName: String = "NA",
 
-        val lastName: String = "NA",
+        var lastName: String = "NA",
 
-        val title: String = "NA",
+        var title: String = "NA",
 
-        val registered: String = "NA",
+        var registered: String = "NA",
 
-        val city: String = "NA",
+        var city: String = "NA",
 
-        val street: String = "NA",
+        var street: String = "NA",
 
-        val postcode: String = "NA",
+        var postcode: String = "NA",
 
-        val state: String = "NA",
+        var state: String = "NA",
 
-        val cell: String = "NA",
+        var cell: String = "NA",
 
-        val email: String = "NA",
+        var email: String = "NA",
 
-        val thumbnail: String = "NA",
+        var thumbnail: String = "NA",
 
-        val large: String = "NA",
+        var large: String = "NA",
 
-        val medium: String = "NA"
+        var medium: String = "NA"
 
 )

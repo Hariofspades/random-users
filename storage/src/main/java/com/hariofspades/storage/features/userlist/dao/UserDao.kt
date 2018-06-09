@@ -14,4 +14,7 @@ interface UserDao {
 
     @Query("SELECT * FROM users")
     fun getUserList(): List<ResultsItem>
+
+    @Query("DELETE from users")
+    fun clearRows()
 }
