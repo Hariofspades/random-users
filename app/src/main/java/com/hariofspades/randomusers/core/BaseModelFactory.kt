@@ -3,9 +3,8 @@ package com.hariofspades.randomusers.core
 import android.arch.lifecycle.ViewModel
 import android.arch.lifecycle.ViewModelProvider
 import com.hariofspades.domain.features.userlist.UserDataRepository
-import com.hariofspades.randomusers.common.scheduling.DefaultSchedulerProvider
 import com.hariofspades.randomusers.common.scheduling.SchedulerProvider
-import com.hariofspades.randomusers.feature.userlist.TempViewModel
+import com.hariofspades.randomusers.feature.userlist.UserListViewModel
 
 class BaseModelFactory(
 
@@ -16,9 +15,9 @@ class BaseModelFactory(
 
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
 
-        if (modelClass.isAssignableFrom(TempViewModel::class.java)) {
+        if (modelClass.isAssignableFrom(UserListViewModel::class.java)) {
 
-            return TempViewModel(
+            return UserListViewModel(
                     schedulerProvider,
                     userDataRepository) as T
         }

@@ -13,12 +13,22 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".feature.userlist.TempActivity">
+        <activity
+            android:name=".feature.userlist.UserListActivity"
+            android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".feature.userdetail.UserDetailActivity"
+            android:label="@string/title_user_detail"
+            android:parentActivityName=".feature.userlist.UserListActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.hariofspades.randomusers.feature.userlist.UserListActivity" />
         </activity>
     </application>
 

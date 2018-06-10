@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">Random Users</string>
+    <string name="title_user_list">Users</string>
+    <string name="title_user_detail">User Detail</string>
+    <string name="namePlaceholder">%s %s</string>
 </resources>

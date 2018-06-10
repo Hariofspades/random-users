@@ -34,7 +34,6 @@ fun userListModule() = Kodein.Module {
     bind<ResultItemMapper>("result-mapper") with provider { ResultItemMapper() }
 
     bind<UserDao>("room-db") with singleton {
-        //UserDB.create(instance("appContext"))
         Room.databaseBuilder(instance("appContext"),
                 UserDB::class.java, "user.db").build().userDao()
     }

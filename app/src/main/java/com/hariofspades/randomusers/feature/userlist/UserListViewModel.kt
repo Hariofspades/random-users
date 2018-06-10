@@ -9,7 +9,7 @@ import com.hariofspades.randomusers.core.BaseViewModel
 import io.reactivex.rxkotlin.addTo
 import timber.log.Timber
 
-class TempViewModel(
+class UserListViewModel(
 
         private val schedulerProvider: SchedulerProvider,
         private val userDataRepository: UserDataRepository
@@ -19,6 +19,7 @@ class TempViewModel(
     private val userListLiveData: SingleLiveEvent<List<ResultsItem>> = SingleLiveEvent()
 
     var isConnected: MutableLiveData<Boolean> = MutableLiveData()
+
 
     fun getRandomUserList(): SingleLiveEvent<List<ResultsItem>> {
 
@@ -40,5 +41,10 @@ class TempViewModel(
 
 
         return userListLiveData
+    }
+
+    override fun onCleared() {
+        onDetach()
+        super.onCleared()
     }
 }

@@ -8,6 +8,9 @@ import android.util.Log
 
 import java.util.concurrent.atomic.AtomicBoolean
 
+/**
+ * Helper to get single event emmiter for LiveData
+ */
 class SingleLiveEvent<T> : MutableLiveData<T>() {
 
     private val mPending = AtomicBoolean(false)

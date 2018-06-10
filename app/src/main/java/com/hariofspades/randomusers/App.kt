@@ -24,7 +24,7 @@ class App : Application(), KodeinAware {
 
         import(schedulerModule)
 
-        import(httpModule())
+        import(httpModule(applicationContext))
 
         import(userListModule())
 
