@@ -10,12 +10,12 @@ appConfigProperties.load(new FileInputStream(appConfigPropertiesFile))
 
 android {
 
-    compileSdkVersion 27
+    compileSdkVersion compiledSDKVersion
 
     defaultConfig {
         applicationId "com.hariofspades.randomusers"
-        minSdkVersion 16
-        targetSdkVersion 27
+        minSdkVersion minSDKVersion
+        targetSdkVersion targetSDKVersion
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
