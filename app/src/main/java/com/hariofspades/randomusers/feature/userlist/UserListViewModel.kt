@@ -20,25 +20,6 @@ class UserListViewModel(
 
     var isConnected: MutableLiveData<Boolean> = MutableLiveData()
 
-//    init {
-//            isConnected.value?.let {
-//                userDataRepository.getRandomUserList(it)
-//                        .subscribeOn(schedulerProvider.io())
-//                        .observeOn(schedulerProvider.ui())
-//                        .subscribe({
-//
-//                            Timber.d("Received user list")
-//                            userListLiveData.value = it
-//
-//                        }, {
-//
-//                            Timber.d("Error in receiving the user list - ${it.printStackTrace()}")
-//
-//                        })?.addTo(disposables)
-//            }
-//
-//    }
-//
     fun getRandomUserList(): SingleLiveEvent<List<ResultsItem>> {
 
         isConnected.value?.let {

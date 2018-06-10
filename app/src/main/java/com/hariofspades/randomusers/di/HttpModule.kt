@@ -4,6 +4,7 @@ import android.content.Context
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.hariofspades.randomusers.BuildConfig
+import com.hariofspades.remote.features.userlist.UserService
 import okhttp3.Cache
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -49,13 +50,14 @@ fun httpModule(context: Context) = Kodein.Module {
                 .create()
     }
 
-    bind<Retrofit>("retrofit") with singleton {
+    bind<UserService>("user-service") with singleton {
         Retrofit.Builder()
                 .client(instance("httpclient"))
                 .baseUrl(BuildConfig.API_BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create(instance("gson")))
                 .addCallAdapterFactory(instance("rx-adapter"))
-                .build()
+                .build().create(UserService::class.java)
     }
+
 }
 

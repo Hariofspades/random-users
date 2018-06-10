@@ -7,6 +7,7 @@ import com.hariofspades.data.features.userlist.repository.UserRemote
 import com.hariofspades.data.features.userlist.repository.UserStorage
 import com.hariofspades.domain.features.userlist.UserDataRepository
 import com.hariofspades.remote.features.userlist.UserRemoteImpl
+import com.hariofspades.remote.features.userlist.UserService
 import com.hariofspades.remote.features.userlist.mapper.*
 import com.hariofspades.storage.features.userlist.UserStorageImpl
 import com.hariofspades.storage.features.userlist.dao.UserDao
@@ -24,7 +25,7 @@ fun userListModule() = Kodein.Module {
     bind<UserRemote>("user-remote") with provider {
 
         UserRemoteImpl(
-                instance("retrofit"),
+                instance("user-service"),
                 instance("r-result-mapper")
         )
 

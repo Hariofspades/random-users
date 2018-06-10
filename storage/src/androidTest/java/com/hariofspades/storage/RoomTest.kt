@@ -7,7 +7,7 @@ import com.hariofspades.storage.features.userlist.dao.UserDao
 import android.arch.persistence.room.Room
 import com.hariofspades.storage.features.userlist.database.UserDB
 import android.support.test.InstrumentationRegistry
-import com.hariofspades.domain.features.userlist.model.ResultsItem
+import com.hariofspades.data.features.userlist.entity.ResultsItemEntity
 import io.reactivex.Completable
 import org.hamcrest.CoreMatchers.equalTo
 import org.junit.After
@@ -16,12 +16,12 @@ import org.junit.Before
 import org.junit.Test
 
 @RunWith(AndroidJUnit4::class)
-open class RoomReadWriteTest {
+open class RoomTest {
 
     lateinit var userDao: UserDao
     lateinit var userDB: UserDB
 
-    val result = ResultsItem(
+    val result = ResultsItemEntity(
             nat = "IND",
             gender = "male",
             phone = "9108278345",

@@ -54,12 +54,12 @@ dependencies {
     implementation "com.android.support:support-v4:$supportVersion"
 
     // tests
-    implementation 'com.android.support.constraint:constraint-layout:1.1.0'
     implementation 'com.android.support:support-v4:27.1.1'
     implementation 'com.android.support:recyclerview-v7:27.1.1'
     implementation 'com.android.support:design:27.1.1'
     testImplementation "org.jetbrains.kotlin:kotlin-test-junit:$kotlinVersion"
     testImplementation "junit:junit:$jUnitVersion"
+    testImplementation "com.nhaarman:mockito-kotlin:$mockVersion"
     androidTestImplementation "com.android.support.test:runner:$testRunnerVersion"
     androidTestImplementation "com.android.support.test.espresso:espresso-core:$expressoVersion"
 
@@ -77,6 +77,11 @@ dependencies {
     implementation "android.arch.lifecycle:runtime:$archRuntimeVersion"
     implementation "android.arch.lifecycle:extensions:$archExtensionVersion"
     kapt "android.arch.lifecycle:compiler:$archCompilerVersion"
+    testCompile("android.arch.core:core-testing:$archCompilerVersion", {
+        exclude group: 'com.android.support', module: 'support-compat'
+        exclude group: 'com.android.support', module: 'support-annotations'
+        exclude group: 'com.android.support', module: 'support-core-utils'
+    })
 
     // room
     implementation "android.arch.persistence.room:runtime:$roomVersion"

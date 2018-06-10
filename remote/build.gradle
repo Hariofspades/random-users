@@ -34,7 +34,9 @@ dependencies {
     // tests
     testImplementation "junit:junit:$jUnitVersion"
     androidTestImplementation "com.android.support.test:runner:$testRunnerVersion"
+    testImplementation "org.jetbrains.kotlin:kotlin-test-junit:$kotlinVersion"
     androidTestImplementation "com.android.support.test.espresso:espresso-core:$expressoVersion"
+    testImplementation "com.nhaarman:mockito-kotlin:$mockVersion"
 
     // gson
     implementation "com.google.code.gson:gson:$gsonVersion"

@@ -27,6 +27,7 @@ buildscript {
         rxKotlinVersion = '2.2.0'
         circularImageVersion = '2.2.0'
         constraintVersion = '1.1.0'
+        mockVersion = '1.5.0'
     }
 
     repositories {
