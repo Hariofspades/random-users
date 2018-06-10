@@ -59,6 +59,7 @@ class UserListActivity : BaseActivity(), KodeinAware {
     private fun init() {
         viewModel = ViewModelProviders.of(this, factory).get(UserListViewModel::class.java)
         setupRecyclerView(user_list)
+        viewModel.isConnected.value = false
     }
 
     private fun getNetworkState() {
@@ -71,7 +72,7 @@ class UserListActivity : BaseActivity(), KodeinAware {
             if (twoPane) {
                 val fragment = UserDetailFragment().apply {
                     arguments = Bundle().apply {
-                        putString(UserDetailFragment.ARG_ITEM_ID, it.firstName)
+                        putString(UserDetailFragment.FIRST_NAME, it.firstName)
                     }
                 }
                 supportFragmentManager
@@ -81,12 +82,12 @@ class UserListActivity : BaseActivity(), KodeinAware {
             } else {
                 val intent = Intent(this@UserListActivity,
                         UserDetailActivity::class.java).apply {
-                    putExtra(UserDetailFragment.ARG_ITEM_ID, it.firstName)
+                    putExtra(UserDetailFragment.FIRST_NAME, it.firstName)
                 }
                 startActivity(intent)
             }
         }
-        //recyclerView.adapter = SimpleItemRecyclerViewAdapter(this, DummyContent.ITEMS, twoPane)
+
         recyclerView.adapter = listAdapter
     }
 
@@ -94,7 +95,7 @@ class UserListActivity : BaseActivity(), KodeinAware {
         viewModel.getRandomUserList().observe(this, Observer {
 
             listAdapter.submitList(it)
-            Timber.d("received user size- ${it?.size}")
+            Timber.d("received user size- ${it.toString()}")
 
         })
     }

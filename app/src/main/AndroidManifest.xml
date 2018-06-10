@@ -24,6 +24,7 @@
         </activity>
         <activity
             android:name=".feature.userdetail.UserDetailActivity"
+            android:theme="@style/AppTheme.NoActionBar"
             android:label="@string/title_user_detail"
             android:parentActivityName=".feature.userlist.UserListActivity">
             <meta-data

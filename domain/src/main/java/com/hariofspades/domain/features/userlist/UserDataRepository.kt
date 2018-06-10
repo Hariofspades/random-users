@@ -7,4 +7,6 @@ interface UserDataRepository {
 
     fun getRandomUserList(isConnected: Boolean): Single<List<ResultsItem>>
 
+    fun getOneUser(firstName: String): Single<ResultsItem>
+
 }

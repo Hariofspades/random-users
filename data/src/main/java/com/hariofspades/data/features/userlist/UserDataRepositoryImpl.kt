@@ -16,6 +16,10 @@ class UserDataRepositoryImpl(
 
 ) : UserDataRepository {
 
+    override fun getOneUser(firstName: String): Single<ResultsItem> {
+        return userStorage.getOneUser(firstName).map(resultItemMapper::mapFromEntity)
+    }
+
     override fun getRandomUserList(isConnected: Boolean): Single<List<ResultsItem>> {
 
         if (isConnected) {
@@ -31,9 +35,9 @@ class UserDataRepositoryImpl(
                     .doOnSuccess{ (remote, _) ->
                         userStorage.insertUsers(remote)
                     }
-                    .flatMap { (_, storeageList) ->
+                    .flatMap { (remoteList, _) ->
 
-                        Single.just(storeageList.map { resultItemMapper.mapFromEntity(it) })
+                        Single.just(remoteList.map { resultItemMapper.mapFromEntity(it) })
                     }
         } else {
             //get from db

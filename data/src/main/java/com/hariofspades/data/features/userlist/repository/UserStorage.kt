@@ -8,4 +8,6 @@ interface UserStorage {
     fun insertUsers(list: List<ResultsItemEntity>)
 
     fun getUsers(): Single<List<ResultsItemEntity>>
+
+    fun getOneUser(firstName: String): Single<ResultsItemEntity>
 }

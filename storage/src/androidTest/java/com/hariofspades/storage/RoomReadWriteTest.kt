@@ -21,6 +21,26 @@ open class RoomReadWriteTest {
     lateinit var userDao: UserDao
     lateinit var userDB: UserDB
 
+    val result = ResultsItem(
+            nat = "IND",
+            gender = "male",
+            phone = "9108278345",
+            dob = "1983-07-14 07:29:45",
+            firstName = "Hari",
+            lastName = "Vignesh",
+            title = "Mr",
+            registered = "2010-09-24 02:10:42",
+            city = "Bengaluru",
+            street = "Kalena Agrahara",
+            postcode = "560076",
+            state = "Karnataka",
+            cell = "9108278345",
+            email = "hariutd@gmail.com",
+            large = "https://randomuser.me/api/portraits/men/83.jpg",
+            medium = "https://randomuser.me/api/portraits/med/men/83.jpg",
+            thumbnail = "https://randomuser.me/api/portraits/thumb/men/83.jpg"
+    )
+
     @Before
     fun createDB() {
 
@@ -36,25 +56,6 @@ open class RoomReadWriteTest {
 
     @Test
     fun readWrite() {
-        val result = ResultsItem(
-                nat = "IND",
-                gender = "male",
-                phone = "9108278345",
-                dob = "1983-07-14 07:29:45",
-                firstName = "Hari",
-                lastName = "Vignesh",
-                title = "Mr",
-                registered = "2010-09-24 02:10:42",
-                city = "Bengaluru",
-                street = "Kalena Agrahara",
-                postcode = "560076",
-                state = "Karnataka",
-                cell = "9108278345",
-                email = "hariutd@gmail.com",
-                large = "https://randomuser.me/api/portraits/men/83.jpg",
-                medium = "https://randomuser.me/api/portraits/med/men/83.jpg",
-                thumbnail = "https://randomuser.me/api/portraits/thumb/men/83.jpg"
-        )
 
         Completable.fromAction {userDao.insert(listOf(result))}.subscribe()
 
@@ -62,6 +63,15 @@ open class RoomReadWriteTest {
 
         assert(listUsers.isNotEmpty())
         assert(listUsers[0].firstName == "Hari")
+    }
+
+    @Test
+    fun getOne() {
+
+        Completable.fromAction {userDao.insert(listOf(result))}.subscribe()
+        val user = userDao.getOneUser("Hari")
+
+        assert(user.firstName == "Hari")
     }
 
 }

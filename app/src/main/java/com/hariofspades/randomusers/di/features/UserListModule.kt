@@ -11,7 +11,6 @@ import com.hariofspades.remote.features.userlist.mapper.*
 import com.hariofspades.storage.features.userlist.UserStorageImpl
 import com.hariofspades.storage.features.userlist.dao.UserDao
 import com.hariofspades.storage.features.userlist.database.UserDB
-import com.hariofspades.storage.features.userlist.mapper.SResultItemMapper
 import org.kodein.di.Kodein
 import org.kodein.di.generic.bind
 import org.kodein.di.generic.instance
@@ -38,13 +37,10 @@ fun userListModule() = Kodein.Module {
                 UserDB::class.java, "user.db").build().userDao()
     }
 
-    bind<SResultItemMapper>("s-result-mapper") with provider { SResultItemMapper() }
-
     bind<UserStorage>("user-storage") with provider {
 
         UserStorageImpl(
-                instance("room-db"),
-                instance("s-result-mapper")
+                instance("room-db")
         )
     }
 

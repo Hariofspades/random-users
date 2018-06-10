@@ -50,5 +50,4 @@ dependencies {
 
     //local
     implementation project(":data")
-    implementation project(":domain")
 }
