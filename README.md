@@ -15,7 +15,7 @@ Mobile Screenshots
 <img src="https://github.com/Hariofspades/random-users/blob/master/art/app_screenshot_1.png" alt="Drawing" style="width: 10px;"/>
 </p>
 <p align="center">
-<img src="https://github.com/Hariofspades/random-users/blob/master/art/app_screenshot_2.png" alt="Drawing" style="width: 10px;"/>
+<img src="https://github.com/Hariofspades/random-users/blob/master/art/app_screenshot-2.png" alt="Drawing" style="width: 10px;"/>
 </p>
 Tablet screenshot
 <p align="center">
