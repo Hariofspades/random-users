@@ -9,6 +9,14 @@ import com.hariofspades.randomusers.core.BaseViewModel
 import io.reactivex.rxkotlin.addTo
 import timber.log.Timber
 
+/**
+ *  ViewModel for [UserListActivity], where we show the list of users
+ *
+ *  @param schedulerProvider
+ *  @param userDataRepository
+ *
+ *  @author Hari Vignesh Jayapalan
+ */
 class UserListViewModel(
 
         private val schedulerProvider: SchedulerProvider,
@@ -20,6 +28,13 @@ class UserListViewModel(
 
     var isConnected: MutableLiveData<Boolean> = MutableLiveData()
 
+    /**
+     * The value is returned from DB, if internet is not connected and from network,
+     * if it is connected. New values will be updated to the db. This logic is at
+     * [UserDataRepository]
+     *
+     * @return LiveData
+     */
     fun getRandomUserList(): SingleLiveEvent<List<ResultsItem>> {
 
         isConnected.value?.let {

@@ -8,6 +8,12 @@ import com.hariofspades.randomusers.core.BaseViewModel
 import io.reactivex.rxkotlin.addTo
 import timber.log.Timber
 
+/**
+ *  ViewModel for our [UserDetailActivity], where we show info about one user
+ *
+ *  @param schedulerProvider
+ *  @param userDataRepository
+ */
 class UserDetailViewModel(
 
         private val schedulerProvider: SchedulerProvider,
@@ -17,6 +23,13 @@ class UserDetailViewModel(
 
     private val userLiveData: SingleLiveEvent<ResultsItem> = SingleLiveEvent()
 
+    /**
+     *  by passing firstname, our primary key, we're querying for the
+     *  individual data from Room.
+     *
+     *  @param firstName
+     *  @return SingleLiveEvent<[ResultsItem]>
+     */
     fun getThisUser(firstName: String): SingleLiveEvent<ResultsItem> {
 
         userDataRepository.getOneUser(firstName)

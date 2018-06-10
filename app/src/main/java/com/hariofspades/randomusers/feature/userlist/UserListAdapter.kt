@@ -15,6 +15,16 @@ import com.hariofspades.randomusers.common.glide.PlaceHolder
 import de.hdodenhof.circleimageview.CircleImageView
 import kotlinx.android.synthetic.main.user_list_content.view.*
 
+/**
+ *  Adapter for displaying our users
+ *
+ *  Extends ListAdapter - new Wrapper for RecyclerView Adapter
+ *
+ *  @param [onClickCallback] - click listener for each item
+ *  @constructor [UserListDiffCallback]
+ *
+ *  @author Hari Vignesh Jayapalan
+ */
 class UserListAdapter(
 
         private val onClickCallback: (ResultsItem) -> Unit

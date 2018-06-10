@@ -43,8 +43,6 @@ class ListViewModelTest {
 
     val resultList = listOf(result)
 
-    val isConnectedLiveData: SingleLiveEvent<Boolean> = SingleLiveEvent()
-
     @Rule
     @JvmField
     val rule = InstantTaskExecutorRule()
@@ -77,4 +75,5 @@ class ListViewModelTest {
 
         verify(observer).onChanged(resultList)
     }
+
 }

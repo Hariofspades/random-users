@@ -48,6 +48,7 @@ class UserDetailFragment : BaseFragment(), KodeinAware {
         return rootView
     }
 
+    //Get values and set them respectively. I could improve this with data binding.
     private fun observe() {
         arguments?.let {
             Timber.d("bundle value frag = ${it.getString(FIRST_NAME)}")

@@ -25,6 +25,8 @@ import timber.log.Timber
  * lead to a [UserDetailActivity] representing
  * item details. On tablets, the activity presents the list of items and
  * item details side-by-side using two vertical panes.
+ *
+ * @author Hari Vignesh Jayapalan
  */
 class UserListActivity : BaseActivity(), KodeinAware {
 
